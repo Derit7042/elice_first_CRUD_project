@@ -1,6 +1,5 @@
 package com.elice.boardproject.board.mapper;
 
-import com.elice.boardproject.board.entity.Board;
 import com.elice.boardproject.board.entity.BoardPostDto;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
