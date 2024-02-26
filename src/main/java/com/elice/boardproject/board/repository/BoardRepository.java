@@ -1,12 +1,9 @@
 package com.elice.boardproject.board.repository;
 
-import com.elice.boardproject.board.domain.Board;
+import com.elice.boardproject.board.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.util.List;
-import java.util.Optional;
-
-public interface BoardRepository extends JpaRepository<Board, Long> {
+public interface BoardRepository extends JpaRepository<Post, Long> {
 
 }
+

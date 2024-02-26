@@ -31,15 +31,15 @@
         transform: scale(1.01);
       }
 
-      .board-item:hover {
+      .post-item:hover {
         cursor: pointer;
       }
 
-      .board-item > .btn-group {
+      .post-item > .btn-group {
         display: none;
       }
 
-      .board-item:hover > .btn-group {
+      .post-item:hover > .btn-group {
         display: flex;
       }
     </style>
@@ -58,7 +58,7 @@
           <div
             class="col mb-3"
             th:unless="${#lists.isEmpty(boards)}"
-            th:each="board : ${boards}"
+            th:each="post : ${boards}"
           >
             <div
               class="card"
@@ -66,8 +66,8 @@
               onmouseleave="event.currentTarget.classList.remove('shadow')"
             >
               <a
-                class="board-item pe-auto p-3 link-underline link-underline-opacity-0 d-flex"
-                th:href="@{/boards/{boardId}(boardId=${board.id})}"
+                class="post-item pe-auto p-3 link-underline link-underline-opacity-0 d-flex"
+                th:href="@{/boards/{boardId}(boardId=${post.id})}"
               >
                 <img
                   class="img-thumbnail w-50 h-50 me-3"
@@ -77,13 +77,13 @@
                 <div>
                   <h4
                     class="card-title fw-bold text-dark"
-                    th:text="${board.name}"
+                    th:text="${post.name}"
                   >
                     게시판 이름
                   </h4>
                   <span
                     class="card-text text-secondary text-wrap"
-                    th:text="${board.description}"
+                    th:text="${post.description}"
                     >게시판 설명</span
                   >
                 </div>
@@ -94,7 +94,7 @@
                 >
                   <button
                     class="btn btn-outline-primary lh-1"
-                    th:onclick="'event.preventDefault(); location.href=\'/boards/' + ${board.id} + '/edit\''"
+                    th:onclick="'event.preventDefault(); location.href=\'/boards/' + ${post.id} + '/edit\''"
                   >
                     <span class="material-symbols-outlined"> edit </span>
                   </button>
@@ -102,7 +102,7 @@
                     class="btn btn-outline-danger lh-1"
                     data-bs-toggle="modal"
                     data-bs-target="#deleteModal"
-                    th:onclick="handleDeleteButton(event, [[${board.id}]]);"
+                    th:onclick="handleDeleteButton(event, [[${post.id}]]);"
                   >
                     <span class="material-symbols-outlined"> delete </span>
                   </button>
