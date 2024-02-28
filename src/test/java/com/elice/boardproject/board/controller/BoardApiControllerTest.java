@@ -1,6 +1,6 @@
 package com.elice.boardproject.board.controller;
 
-import com.elice.boardproject.board.repository.BoardRepository;
+import com.elice.boardproject.board.repository.PostRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -26,12 +24,12 @@ class BoardApiControllerTest {
     private WebApplicationContext context;
 
     @Autowired
-    BoardRepository boardRepository;
+    PostRepository postRepository;
 
     @BeforeEach
     public void mockMvcSetUp() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
-        boardRepository.deleteAll();
+        postRepository.deleteAll();
     }
 }
