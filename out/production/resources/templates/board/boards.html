@@ -31,15 +31,15 @@
         transform: scale(1.01);
       }
 
-      .post-item:hover {
+      .board-item:hover {
         cursor: pointer;
       }
 
-      .post-item > .btn-group {
+      .board-item > .btn-group {
         display: none;
       }
 
-      .post-item:hover > .btn-group {
+      .board-item:hover > .btn-group {
         display: flex;
       }
     </style>
@@ -48,7 +48,7 @@
   <body>
     <div class="container my-5">
       <div class="header mb-5">
-        <h1 class="text-center">게시판 목록</h1>
+        <h1 class="text-center">야구 게시판</h1>
       </div>
       <div class="d-flex justify-content-end mb-3">
         <a th:href="@{/boards/create}" class="btn btn-primary">게시판 추가</a>
@@ -58,7 +58,7 @@
           <div
             class="col mb-3"
             th:unless="${#lists.isEmpty(boards)}"
-            th:each="post : ${boards}"
+            th:each="board : ${boards}"
           >
             <div
               class="card"
@@ -66,24 +66,24 @@
               onmouseleave="event.currentTarget.classList.remove('shadow')"
             >
               <a
-                class="post-item pe-auto p-3 link-underline link-underline-opacity-0 d-flex"
-                th:href="@{/boards/{boardId}(boardId=${post.id})}"
+                class="board-item pe-auto p-3 link-underline link-underline-opacity-0 d-flex"
+                th:href="@{/boards/{boardId}(boardId=${board.id})}"
               >
-                <img
-                  class="img-thumbnail w-50 h-50 me-3"
-                  src="hellobit.png"
-                  alt="hellobit"
-                />
+<!--                <img-->
+<!--                  class="img-thumbnail w-50 h-50 me-3"-->
+<!--                  src="hitter.jpg"-->
+<!--                  alt="hellobit"-->
+<!--                />-->
                 <div>
                   <h4
                     class="card-title fw-bold text-dark"
-                    th:text="${post.name}"
+                    th:text="${board.name}"
                   >
                     게시판 이름
                   </h4>
                   <span
                     class="card-text text-secondary text-wrap"
-                    th:text="${post.description}"
+                    th:text="${board.description}"
                     >게시판 설명</span
                   >
                 </div>
@@ -94,7 +94,7 @@
                 >
                   <button
                     class="btn btn-outline-primary lh-1"
-                    th:onclick="'event.preventDefault(); location.href=\'/boards/' + ${post.id} + '/edit\''"
+                    th:onclick="'event.preventDefault(); location.href=\'/boards/' + ${board.id} + '/edit\''"
                   >
                     <span class="material-symbols-outlined"> edit </span>
                   </button>
@@ -102,7 +102,7 @@
                     class="btn btn-outline-danger lh-1"
                     data-bs-toggle="modal"
                     data-bs-target="#deleteModal"
-                    th:onclick="handleDeleteButton(event, [[${post.id}]]);"
+                    th:onclick="handleDeleteButton(event, [[${board.id}]]);"
                   >
                     <span class="material-symbols-outlined"> delete </span>
                   </button>

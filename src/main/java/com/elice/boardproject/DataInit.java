@@ -28,7 +28,7 @@ public class DataInit {
         Board board2 = boardRepository.findById(2L).orElseThrow(() -> new RuntimeException());
 
         postRepository.save(new Post(board,"구속 빨라지려면", "구속 빨라지려면 어떤 운동을 해야하나요?"));
-        postRepository.save(new Post(board, "투구하기 전에 하면 좋은 것", "투구하기 전에 스르레칭과 튜빙으로 어깨에 긴장감을 주며 풀어주면 좋습니다."));
+        postRepository.save(new Post(board, "투구하기 전에 하면 좋은 것", "투구하기 전에 스트레칭과 튜빙으로 어깨에 긴장감을 주며 풀어주면 좋습니다."));
         postRepository.save(new Post(board,"김광현 슬라이더 어떻게 던지나요?", "김광현 슬라이더 그립이랑 어떻게 던지는지 궁금해요."));
 
         postRepository.save(new Post(board2, "전문적으로 타자 훈련 받고싶은데", "전문적으로 타자 훈련 받고 싶은데, 좋은 레슨장 있나요?"));

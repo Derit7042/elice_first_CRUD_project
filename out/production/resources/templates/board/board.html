@@ -23,7 +23,7 @@
         font-family: "Elice DX Neolli", sans-serif;
       }
     </style>
-    <title th:text="${post.name}"></title>
+    <title th:text="${board.name}"></title>
   </head>
   <body>
     <div class="container my-5">
@@ -34,10 +34,10 @@
         >&larr; 게시판 목록으로 돌아가기</a
       >
       <div class="header mb-5">
-        <h1 class="text-center" th:text="${post.name}">게시판 제목</h1>
+        <h1 class="text-center" th:text="${board.name}">게시판 제목</h1>
         <p
           class="text-center text-secondary"
-          th:text="${post.description}"
+          th:text="${board.description}"
         ></p>
       </div>
       <div class="d-flex w-100 justify-content-between mb-3">
@@ -55,14 +55,14 @@
           </div>
         </form>
         <a
-          th:href="@{/posts/create(boardId=${post.id})}"
+          th:href="@{/posts/create(boardId=${board.id})}"
           class="btn btn-primary"
           >게시글 추가</a
         >
       </div>
       <div class="list-group position-relative mb-3">
         <a
-          class="post-item list-group-item p-3 list-group-item-action"
+          class="board-item list-group-item p-3 list-group-item-action"
           th:unless="${postPage.isEmpty()}"
           th:each="post : ${postPage}"
           th:href="@{/posts/{postId}(postId=${post.id})}"
@@ -87,7 +87,7 @@
           >
             <a
               class="page-link"
-              th:href="@{/boards/{boardId}(page=${i}, size=${postPage.size}, boardId=${post.id}, keyword=${keyword})}"
+              th:href="@{/boards/{boardId}(page=${i}, size=${postPage.size}, boardId=${board.id}, keyword=${keyword})}"
               th:text="${i + 1}"
               >0</a
             >
